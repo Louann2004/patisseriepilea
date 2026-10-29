@@ -317,6 +317,7 @@ background: var(--wine);
 }
 
 .legal-wrap .title {
+color:#fff2db;
 text-align: left;
 max-width: 900px;
 margin: 0 auto;
