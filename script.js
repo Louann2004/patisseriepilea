@@ -102,6 +102,6 @@ if (f) {
       location.href = "mailto:patisseriepilea@gmail.com?subject=" + encodeURIComponent(d._subject) + "&body=" + encodeURIComponent(body);
     }
     btn.disabled = false;
-    btn.textContent = "Envoyer";
+    btn.textContent = "Envoyer par email";
   });
 }
