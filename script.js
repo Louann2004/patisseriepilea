@@ -88,7 +88,7 @@ if (f) {
     btn.textContent = "Envoi en cours…";
 
     try {
-      const x = await fetch("https://formsubmit.co/ajax/patisseriepilea@gmail.com", {
+      const x = await fetch("https://formsubmit.co/ajax/contact@patisseriepilea.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(d)
@@ -99,7 +99,7 @@ if (f) {
     } catch (_) {
       const body = Object.entries(d).filter(([k]) => k[0] !== "_").map(([k, v]) => k + " : " + v).join("\n");
       msg.textContent = "L'envoi direct n'a pas abouti : votre application mail s'ouvre avec le message prêt à envoyer.";
-      location.href = "mailto:patisseriepilea@gmail.com?subject=" + encodeURIComponent(d._subject) + "&body=" + encodeURIComponent(body);
+      location.href = "mailto:contact@patisseriepilea.com?subject=" + encodeURIComponent(d._subject) + "&body=" + encodeURIComponent(body);
     }
     btn.disabled = false;
     btn.textContent = "Envoyer par email";
