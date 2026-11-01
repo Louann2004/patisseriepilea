@@ -6,6 +6,8 @@ const IMG = {
   "banana": "images/banana_bread.jpg",
   "muffin": "images/muffin.jpg",
   "cookie2": "images/cookies.jpg",
+  "crumble": "images/cake_crumble.jpg",
+  "clafoutis": "images/clafoutis.jpg",
   "cheesecake": "images/cheese_cake.jpg",
   "tiramisu": "images/tiramisu.jpg",
   "hero": "images/accueil.jpg",
@@ -14,32 +16,40 @@ const IMG = {
   "fraises": "images/fraises.jpg"
 };
 
+// Les gâteaux de voyage : [image, nom, description, prix]
 const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", "3 €"],
-  ["muffin", "Muffin d'automne", "Sirop d'érable, spéculoos, cannelle, 4 épices.<br><br>Allergènes : gluten, soja.", "3 €"],
-  ["cheesecake", "Cheesecake", "Base de spéculoos, appareil au tofu et fruits du jour.<br><br>Commande minimum : 8 personnes (3,75€/part).<br><br>Allergènes : gluten, soja.", "3,75 €"],
-  ["tiramisu", "Tiramisu", "Spéculoos, café, crème vanillée, cacao en poudre.<br><br>Commande minimum : 4 personnes (portions généreuses : 195g/personne).<br><br>Allergènes : gluten, soja.", "4,75 €"],
-  ["banana", "Banana bread", "Format unique de 8 personnes (2,75€/part).<br><br>Allergènes : gluten, soja, fruits à coque.", "2,75 €"]
+  ["muffin", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", "3 €"],
+  ["banana", "Banana bread", "Minimum de commande : un cake de 8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "2,75 €"],
+  ["crumble", "Cake pomme crumble", "Minimum de commande : un cake de 8 personnes (2,90€/part)<br>Format individuel possible.<br><br>Allergènes : gluten, soja, fruits à coque.", "2,90 €"]
 ];
 
+// Les pâtisseries fraîches : [image, nom, description, prix]
+const F = [
+  ["clafoutis", "Clafoutis aux fruits", "Minimum de commande : 5 unités (3,50€/part)<br><br>Allergènes : soja, fruits à coque.", "3,50 €"],
+  ["cheesecake", "Cheesecake aux fruits", "Minimum de commande : 8 personnes (3,75€/part).<br><br>Allergènes : gluten, soja.", "3,75 €"],
+  ["tiramisu", "Tiramisu spéculoos et café", "Minimum de commande : 4 personnes (portions généreuses : 195g/personne) à 4,75€/part<br><br>Allergènes : gluten, soja.", "4,75 €"]
+];
+
+// Les tartes de saison : [image, nom, description, [prix 6, 8, 10 personnes]]
 const T = [
-  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [24, 31, 38]],
-  ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [26, 33, 40]],
-  ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br><br>Allergènes : gluten, soja.", [25, 32, 39]],
-  ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [27, 34, 41]]
+  ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [27, 32, 37]],
+  ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)<br><br>Allergènes : gluten, soja.", [23, 28, 33]],
+  ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [27, 31, 35]],
+  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]]
 ];
 
 const card = (k, t, d, p) => `<article class="card"><img src="${IMG[k]}" alt="${t}" loading="lazy"><h3>${t}</h3><p>${d}</p><span class="badge">🌱 Végétalien</span>${p}</article>`;
+const single = v => card(v[0], v[1], v[2], `<span class="price">${v[3]}</span>`);
 
 const g1 = document.getElementById("g1");
 const g2 = document.getElementById("g2");
+const g3 = document.getElementById("g3");
 
-if (g1) {
-  g1.innerHTML = V.map(v => card(v[0], v[1], v[2], `<span class="price">${v[3]}</span>`)).join("");
-}
-
-if (g2) {
-  g2.innerHTML = T.map(v => card(v[0], v[1], v[2], [6, 8, 10].map((n, i) => `<p>${n} personnes <b>${v[3][i]} €</b></p>`).join(""))).join("");
+if (g1) g1.innerHTML = V.map(single).join("");
+if (g2) g2.innerHTML = F.map(single).join("");
+if (g3) {
+  g3.innerHTML = T.map(v => card(v[0], v[1], v[2], [6, 8, 10].map((n, i) => `<p>${n} personnes <b>${v[3][i]} €</b></p>`).join(""))).join("");
 }
 
 document.querySelectorAll("[data-k]").forEach(i => i.src = IMG[i.dataset.k]);
