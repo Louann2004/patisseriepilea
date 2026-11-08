@@ -7,6 +7,7 @@ const IMG = {
   "muffin": "images/muffin.jpg",
   "cookie2": "images/cookies.jpg",
   "crumble": "images/cake_crumble.jpg",
+  "fondant": "images/fondant_chocolat.jpg",
   "clafoutis": "images/clafoutis.jpg",
   "cheesecake": "images/cheese_cake.jpg",
   "tiramisu": "images/tiramisu.jpg",
@@ -21,13 +22,14 @@ const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", "3 €"],
   ["muffin", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", "3 €"],
   ["banana", "Banana bread", "Minimum de commande : un cake de 8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "2,75 €"],
-  ["crumble", "Cake pomme crumble", "Minimum de commande : un cake de 8 personnes (2,90€/part)<br>Format individuel possible.<br><br>Allergènes : gluten, soja, fruits à coque.", "2,90 €"]
+  ["crumble", "Cake pomme crumble", "Minimum de commande : un cake de 8 personnes (2,90€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "2,90 €"],
+  ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", "3,25 €"]
 ];
 
 // Les pâtisseries fraîches : [image, nom, description, prix]
 const F = [
   ["clafoutis", "Clafoutis aux fruits", "Minimum de commande : 5 unités (3,50€/part)<br><br>Allergènes : soja, fruits à coque.", "3,50 €"],
-  ["cheesecake", "Cheesecake aux fruits", "Minimum de commande : 8 personnes (3,75€/part).<br><br>Allergènes : gluten, soja.", "3,75 €"],
+  ["cheesecake", "Cheesecake aux fruits", "Minimum de commande : 4 parts.<br><br>Allergènes : gluten, soja.", "3,75 €"],
   ["tiramisu", "Tiramisu spéculoos et café", "Minimum de commande : 4 personnes (portions généreuses : 195g/personne) à 4,75€/part<br><br>Allergènes : gluten, soja.", "4,75 €"]
 ];
 
