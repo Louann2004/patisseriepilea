@@ -79,6 +79,17 @@ function route() {
 addEventListener("hashchange", route);
 route();
 
+// Quand on arrive sur une page via le menu, le navigateur saute à l'ancre (#carte, #contact...)
+// et masque le bandeau du haut : on force donc l'affichage tout en haut de la page.
+// (Le rechargement et les boutons précédent/suivant gardent leur comportement habituel.)
+const navEntry = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0]) || {};
+if (navEntry.type !== "reload" && navEntry.type !== "back_forward") {
+  const toTop = () => scrollTo(0, 0);
+  toTop();
+  requestAnimationFrame(toTop);
+  addEventListener("load", () => { toTop(); setTimeout(toTop, 60); });
+}
+
 const accueilHero = document.getElementById("accueil");
 if (accueilHero) {
   accueilHero.style.backgroundImage = "linear-gradient(rgba(255,241,214,.5),rgba(255,241,214,.5)),url(" + IMG.hero + ")";

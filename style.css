@@ -238,6 +238,11 @@ margin: 0;
 font-size: 12px;
 }
 
+/* Espace entre le libellé (ex. « Lot de 6 ») et son prix */
+.card p b {
+margin-left: 14px;
+}
+
 .badge {
 background: var(--rose);
 border-radius: 99px;
