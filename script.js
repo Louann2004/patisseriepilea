@@ -29,21 +29,21 @@ const U = [["À l'unité", "3 €"], ["Lot de 6", "17 €"], ["Lot de 12", "33 �
 const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", U],
   ["muffin", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
-  ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "13 €"], ["8 parts", "25 €"]]],
+  ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "25 €"]]],
   ["banana", "Banana bread", "8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "22 €"],
   ["crumble", "Cake pomme crumble", "8 personnes (3€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "24 €"]
 ];
 
 // Les pâtisseries fraîches : [image, nom, description, prix]
 const F = [
-  ["clafoutis", "Clafoutis aux fruits", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "26 €"]]],
+  ["clafoutis", "Clafoutis aux fruits", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "25 €"]]],
   ["cheesecake", "Cheesecake aux fruits", "8 personnes (3,75€/part).<br><br>Allergènes : gluten, soja.", "30 €"],
-  ["tiramisu", "Tiramisu spéculoos et café", "Allergènes : gluten, soja.", [["6 parts", "21 €"], ["12 parts", "38 €"]]]
+  ["tiramisu", "Tiramisu spéculoos et café", "Allergènes : gluten, soja.", [["6 parts", "25 €"], ["12 parts", "45 €"]]]
 ];
 
 // Les tartes de saison : [image, nom, description, [prix 6, 8, 10 personnes]]
 const T = [
-  ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [27, 32, 37]],
+  ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [32, 38, 43]],
   ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)<br><br>Allergènes : gluten, soja.", [25, 30, 35]],
   ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [27, 31, 35]],
   ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]]
