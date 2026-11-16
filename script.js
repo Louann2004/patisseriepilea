@@ -12,8 +12,8 @@ const IMG = {
   "cheesecake": "images/cheese_cake.jpg",
   "tiramisu": "images/tiramisu.jpg",
   "hero": "images/accueil.jpg",
-  "cookie": "images/cookie.jpg",
   "piping": "images/piping.jpg",
+  "brownie": "images/brownie.jpg",
   "fraises": "images/fraises.jpg"
 };
 

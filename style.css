@@ -1,3 +1,19 @@
+/* Police Recoleta (titres de la page d'accueil) : déposer les fichiers dans le dossier "fonts" */
+@font-face {
+font-family: "Recoleta";
+src: local("Recoleta Regular"), local("Recoleta-Regular"), url("fonts/Recoleta-Regular.woff2") format("woff2"), url("fonts/Recoleta-Regular.woff") format("woff");
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+@font-face {
+font-family: "Recoleta";
+src: local("Recoleta Bold"), local("Recoleta-Bold"), url("fonts/Recoleta-Bold.woff2") format("woff2"), url("fonts/Recoleta-Bold.woff") format("woff");
+font-weight: 700;
+font-style: normal;
+font-display: swap;
+}
+
 :root {
 --bg: #FFFAF2;
 --cream: #FFF1D6;
@@ -50,6 +66,13 @@ font-weight: 700;
 text-decoration: none;
 line-height: 1.1;
 display: block;
+}
+
+.logo img {
+display: block;
+height: 78px;
+width: auto;
+max-width: 100%;
 }
 
 .tag {
@@ -106,13 +129,14 @@ display: flex;
 }
 
 .hero h1 {
+font-family: Recoleta, Fraunces, Georgia, serif;
 font-size: clamp(38px, 8vw, 92px);
 line-height: 1;
 font-weight: 700;
 }
 
 .hero p {
-font: 400 clamp(20px, 2.6vw, 28px)/1.4 Fraunces, serif;
+font: 400 clamp(20px, 2.6vw, 28px)/1.4 Recoleta, Fraunces, serif;
 max-width: 26em;
 margin: 24px 0 32px;
 }
@@ -345,8 +369,8 @@ margin: 0 0 10px;
 text-align: center;
 }
 
-footer .logo {
-font-size: 20px;
+footer .logo img {
+height: 84px;
 }
 
 footer .ig svg {
@@ -384,8 +408,11 @@ justify-content: center;
 text-align: center;
 padding: 18px 14px;
 }
-.logo {
-font-size: 36px;
+.logo img {
+height: 62px;
+}
+footer .logo img {
+height: 70px;
 }
 .tag {
 font-size: 10.5px;
