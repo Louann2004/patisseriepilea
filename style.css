@@ -70,7 +70,7 @@ display: block;
 
 .logo img {
 display: block;
-height: 78px;
+height: 100px;
 width: auto;
 max-width: 100%;
 }
@@ -371,6 +371,7 @@ text-align: center;
 
 footer .logo img {
 height: 84px;
+margin-bottom: 26px;
 }
 
 footer .ig svg {
@@ -396,6 +397,27 @@ justify-content: center;
 .copy {
 grid-column: 1/-1;
 font-size: 11px;
+}
+
+/* Bandeau du bas (ordinateur) : copyright sous le texte à gauche,
+   Contact / Horaires / Livraison / bouton centrés verticalement */
+@media (min-width: 761px) {
+footer {
+row-gap: 0;
+}
+footer > div:nth-child(1) {
+grid-column: 1;
+grid-row: 1;
+}
+footer > .copy {
+grid-column: 1;
+grid-row: 2;
+margin-top: 22px;
+}
+footer > div:nth-child(n+2):not(.copy), footer > .fbtn {
+grid-row: 1 / span 2;
+align-self: center;
+}
 }
 
 .fbtn {
