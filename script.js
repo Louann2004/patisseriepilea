@@ -28,7 +28,7 @@ const U = [["À l'unité", "3 €"], ["Lot de 6", "17 €"], ["Lot de 12", "33 �
 // Les gâteaux de voyage : [image, nom, description, prix]
 const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", U],
-  ["muffin", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
+  ["muffin", "Muffin du moment", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
   ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "25 €"]]],
   ["banana", "Banana bread", "8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "22 €"],
   ["crumble", "Cake pomme crumble", "8 personnes (3€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "24 €"]
