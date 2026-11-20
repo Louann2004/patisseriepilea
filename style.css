@@ -1,15 +1,8 @@
-/* Police Recoleta (titres de la page d'accueil) : déposer les fichiers dans le dossier "fonts" */
+/* Police Recoleta : un seul fichier (Regular) -> le gras n'est pas simulé */
 @font-face {
 font-family: "Recoleta";
-src: local("Recoleta Regular"), local("Recoleta-Regular"), url("fonts/Recoleta-Regular.woff2") format("woff2"), url("fonts/Recoleta-Regular.woff") format("woff");
-font-weight: 400;
-font-style: normal;
-font-display: swap;
-}
-@font-face {
-font-family: "Recoleta";
-src: local("Recoleta Bold"), local("Recoleta-Bold"), url("fonts/Recoleta-Bold.woff2") format("woff2"), url("fonts/Recoleta-Bold.woff") format("woff");
-font-weight: 700;
+src: url("fonts/Recoleta-Regular.woff") format("woff");
+font-weight: 100 900;
 font-style: normal;
 font-display: swap;
 }
@@ -44,6 +37,12 @@ font: 14px/1.6 Inter, Arial, sans-serif;
 h1, h2, h3, .logo {
 font-family: Fraunces, Georgia, serif;
 margin: 0;
+}
+
+/* Recoleta : accueil, à la carte, à propos */
+.hero h1, .hero p, #carte h1, #carte h2, #carte .card h3, #apropos h1, #apropos h2 {
+font-family: Recoleta, Fraunces, Georgia, serif;
+font-synthesis: none;
 }
 
 a {
@@ -218,6 +217,7 @@ margin: 0 0 6px;
 .menu h2 {
 font-size: 24px;
 margin-top: 44px;
+margin-bottom: 28px;
 }
 
 .menu .sub {
