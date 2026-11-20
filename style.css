@@ -1,12 +1,3 @@
-/* Police Recoleta : un seul fichier (Regular) -> le gras n'est pas simulé */
-@font-face {
-font-family: "Recoleta";
-src: url("fonts/Recoleta-Regular.woff") format("woff");
-font-weight: 100 900;
-font-style: normal;
-font-display: swap;
-}
-
 :root {
 --bg: #FFFAF2;
 --cream: #FFF1D6;
@@ -37,12 +28,6 @@ font: 14px/1.6 Inter, Arial, sans-serif;
 h1, h2, h3, .logo {
 font-family: Fraunces, Georgia, serif;
 margin: 0;
-}
-
-/* Recoleta : accueil, à la carte, à propos */
-.hero h1, .hero p, #carte h1, #carte h2, #carte .card h3, #apropos h1, #apropos h2 {
-font-family: Recoleta, Fraunces, Georgia, serif;
-font-synthesis: none;
 }
 
 a {
@@ -128,14 +113,13 @@ display: flex;
 }
 
 .hero h1 {
-font-family: Recoleta, Fraunces, Georgia, serif;
 font-size: clamp(38px, 8vw, 92px);
 line-height: 1;
 font-weight: 700;
 }
 
 .hero p {
-font: 400 clamp(20px, 2.6vw, 28px)/1.4 Recoleta, Fraunces, serif;
+font: 400 clamp(20px, 2.6vw, 28px)/1.4 Fraunces, serif;
 max-width: 26em;
 margin: 24px 0 32px;
 }
