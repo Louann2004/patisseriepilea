@@ -206,11 +206,18 @@ padding: 0 24px 60px;
 text-align: center;
 }
 
+.menu .title {
+text-align: left;
+padding: 56px 0 22px;
+}
+
 .menu .intro {
-color: var(--soft);
-font-weight: 600;
+text-align: left;
+color: var(--wine);
+font-weight: 400;
 font-size: 18px;
-margin: 0 0 6px;
+line-height: 1.6;
+margin: 0 0 52px;
 }
 
 .menu h2 {
@@ -239,7 +246,7 @@ display: grid;
 grid-template-columns: 210px 1fr;
 gap: 0 28px;
 text-align: left;
-margin-top: 28px;
+margin-top: 0;
 }
 
 .carte-nav {
@@ -519,15 +526,23 @@ padding: 12px 20px;
 }
 
 @media(max-width: 760px) {
+.menu .title {
+padding: 36px 0 16px;
+}
+.menu .intro {
+font-size: 16px;
+margin-bottom: 30px;
+}
 .carte-layout {
 grid-template-columns: 1fr;
 gap: 0;
-margin-top: 18px;
+margin-top: 0;
 }
 .carte-nav {
 position: static;
 flex-direction: row;
 flex-wrap: wrap;
+justify-content: flex-start;
 gap: 6px 8px;
 padding: 0 0 16px;
 min-height: 0;
