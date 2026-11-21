@@ -638,26 +638,28 @@ padding: 36px 7%;
 
 @media (min-width: 1100px) {
 #apropos {
---s: min(50vw, clamp(480px, calc(100svh - 320px), 720px));
+--s: 50vw;
 }
 #apropos .split {
-grid-template-columns: repeat(2, var(--s));
-justify-content: center;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 #apropos .split > * {
-width: var(--s);
-height: var(--s);
+min-width: 0;
+width: 100%;
+height: auto;
 min-height: 0;
+aspect-ratio: 1 / 1;
 }
 #apropos .split > .txt {
 padding: 0 6%;
-gap: 12px;
+gap: 14px;
 }
 #apropos .txt p {
-font-size: clamp(15px, calc(var(--s) * 0.027), 18px);
+font-size: clamp(15px, calc(var(--s) * 0.026), 22px);
 line-height: 1.5;
+max-width: 36em;
 }
 #apropos .txt h2 {
-font-size: clamp(26px, calc(var(--s) * 0.056), 40px);
+font-size: clamp(26px, calc(var(--s) * 0.056), 52px);
 }
 }
