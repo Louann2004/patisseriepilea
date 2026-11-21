@@ -109,22 +109,8 @@ function route() {
   scrollTo(0, 0);
 }
 
-// À propos : les 4 blocs ont toujours exactement la même hauteur (celle du bloc de texte le plus haut)
-function equalizeBlocks() {
-  const a = document.getElementById("apropos");
-  if (!a) return;
-  a.style.removeProperty("--blk");
-  if (!matchMedia("(min-width: 761px)").matches || !a.offsetHeight) return;
-  const need = Math.max(...[...a.querySelectorAll(".txt")].map(e => e.getBoundingClientRect().height));
-  a.style.setProperty("--blk", Math.ceil(need) + "px");
-}
-
-addEventListener("hashchange", () => { route(); equalizeBlocks(); });
-addEventListener("resize", equalizeBlocks);
-addEventListener("load", equalizeBlocks);
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalizeBlocks);
+addEventListener("hashchange", route);
 route();
-equalizeBlocks();
 
 // Quand on arrive sur une page via le menu, le navigateur saute à l'ancre (#carte, #contact...)
 // et masque le bandeau du haut : on force donc l'affichage tout en haut de la page.

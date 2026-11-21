@@ -196,7 +196,7 @@ line-height: 1.55;
 }
 
 #apropos .band .title {
-padding: 22px 16px;
+padding: clamp(30px, 3.4vw, 46px) 16px;
 }
 
 .menu {
@@ -482,27 +482,7 @@ font-size: 13px;
 /* Bandeau du bas (ordinateur) : copyright sous le texte à gauche,
    Contact / Horaires / Livraison / bouton centrés verticalement */
 @media (min-width: 761px) {
-#apropos {
---blk: clamp(480px, calc(100svh - 330px), 640px);
-}
-#apropos .split > img {
-height: var(--blk);
-min-height: 0;
-}
-#apropos .split > .txt {
-min-height: var(--blk);
-padding: 28px 6%;
-}
-#apropos .txt {
-gap: 12px;
-}
-#apropos .txt p {
-font-size: clamp(15px, 1.2vw, 17px);
-line-height: 1.5;
-}
-#apropos .txt h2 {
-font-size: clamp(26px, 2.8vw, 36px);
-}
+
 footer {
 row-gap: 0;
 }
@@ -608,15 +588,6 @@ background-position: 50% center;
 .split > * {
 min-height: 240px;
 }
-#apropos .split > img {
-height: auto;
-min-height: 0;
-aspect-ratio: 4 / 3;
-}
-#apropos .split > .txt {
-min-height: 0;
-padding: 36px 7%;
-}
 .txt p {
 font-size: 16px;
 }
@@ -637,4 +608,56 @@ grid-template-columns: 1fr;
 }
 .fbtn {
 justify-self: start;
+}
+}
+
+/* À propos : blocs carrés, tous de la même taille */
+@media (max-width: 1099px) {
+#apropos .split {
+grid-template-columns: 1fr;
+}
+#apropos .split > img {
+height: auto;
+min-height: 0;
+aspect-ratio: 4 / 3;
+}
+#apropos .split > .txt {
+min-height: 0;
+padding: 44px 8%;
+}
+}
+
+@media (max-width: 600px) {
+#apropos .split > img {
+aspect-ratio: 1 / 1;
+}
+#apropos .split > .txt {
+padding: 36px 7%;
+}
+}
+
+@media (min-width: 1100px) {
+#apropos {
+--s: min(50vw, clamp(480px, calc(100svh - 320px), 720px));
+}
+#apropos .split {
+grid-template-columns: repeat(2, var(--s));
+justify-content: center;
+}
+#apropos .split > * {
+width: var(--s);
+height: var(--s);
+min-height: 0;
+}
+#apropos .split > .txt {
+padding: 0 6%;
+gap: 12px;
+}
+#apropos .txt p {
+font-size: clamp(15px, calc(var(--s) * 0.027), 18px);
+line-height: 1.5;
+}
+#apropos .txt h2 {
+font-size: clamp(26px, calc(var(--s) * 0.056), 40px);
+}
 }
