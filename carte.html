@@ -47,12 +47,18 @@
         <div class="carte-layout">
           <nav class="carte-nav" aria-label="Sections de la carte">
             <button type="button" data-s="all" class="on" aria-current="true">Voir tout</button>
+            <button type="button" data-s="nouv">Nouveautés</button>
             <button type="button" data-s="0">Gâteaux de voyage</button>
             <button type="button" data-s="1">Pâtisseries fraîches</button>
             <button type="button" data-s="2">Douceurs à tartiner</button>
             <button type="button" data-s="3">Tartes de saison</button>
           </nav>
           <div class="carte-content all">
+          <section class="carte-sec" data-s="nouv">
+            <h2>Les nouveautés</h2>
+            <div class="grid" id="g0"></div>
+            <div class="next-wrap"><span>Suivant</span><button type="button" class="btn next" data-go="0">Gâteaux de voyage</button></div>
+          </section>
           <section class="carte-sec" data-s="0">
             <h2>Les gâteaux de voyage</h2>
             <div class="grid" id="g1"></div>

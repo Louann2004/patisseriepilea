@@ -5,6 +5,7 @@ const IMG = {
   "amandine": "images/tarte_amandine.jpg",
   "banana": "images/banana_bread.jpg",
   "muffin": "images/muffin.jpg",
+  "muffinepices": "images/muffin_epices.jpg",
   "cookie2": "images/cookies.jpg",
   "crumble": "images/cake_crumble.jpg",
   "fondant": "images/fondant_chocolat.jpg",
@@ -28,10 +29,16 @@ const POS = {
 // Prix : soit un texte (prix unique), soit une liste [libellé, prix]
 const U = [["À l'unité", "3 €"], ["Lot de 6", "17 €"], ["Lot de 12", "33 €"]];
 
+// Les nouveautés : [image, nom, description, prix]
+const N = [
+  ["tartelette", "Tartelette &quot;pumpkin pie&quot;", "Pâte sucrée croustillante, crème de potimarron, épices de Noël.<br><br>Allergènes : gluten, soja.", [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]]],
+  ["muffin", "Muffin myrtilles", "Allergènes : gluten, soja.", U]
+];
+
 // Les gâteaux de voyage : [image, nom, description, prix]
 const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", U],
-  ["muffin", "Muffin du moment", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
+  ["muffinepices", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
   ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "25 €"]]],
   ["banana", "Banana bread", "8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "22 €"],
   ["crumble", "Cake pomme crumble", "8 personnes (3€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "24 €"]
@@ -55,19 +62,20 @@ const T = [
   ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [32, 38, 43]],
   ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)<br><br>Allergènes : gluten, soja.", [25, 30, 35]],
   ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [27, 31, 35]],
-  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]],
-  ["tartelette", "Tartelette &quot;pumpkin pie&quot;", "Pâte sucrée croustillante, crème de potimarron, épices de Noël.<br><br>Allergènes : gluten, soja.", [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]]]
+  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]]
 ];
 
 const card = (k, t, d, p) => `<article class="card"><img src="${IMG[k]}" alt="${t}" loading="lazy"${POS[k] ? ` style="object-position:${POS[k]}"` : ""}><h3>${t}</h3><p>${d}</p><span class="badge">🌱 Végétalien</span>${p}</article>`;
 const lines = l => l.map(x => `<p>${x[0]} <b>${x[1]}</b></p>`).join("");
 const single = v => card(v[0], v[1], v[2], Array.isArray(v[3]) ? lines(v[3]) : `<span class="price">${v[3]}</span>`);
 
+const g0 = document.getElementById("g0");
 const g1 = document.getElementById("g1");
 const g2 = document.getElementById("g2");
 const g3 = document.getElementById("g3");
 const g4 = document.getElementById("g4");
 
+if (g0) g0.innerHTML = N.map(single).join("");
 if (g1) g1.innerHTML = V.map(single).join("");
 if (g2) g2.innerHTML = F.map(single).join("");
 if (g4) g4.innerHTML = D.map(single).join("");
