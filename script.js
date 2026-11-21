@@ -14,7 +14,9 @@ const IMG = {
   "hero": "images/accueil.jpg",
   "piping": "images/piping.jpg",
   "brownie": "images/brownie.jpg",
-  "fraises": "images/fraises.jpg"
+  "fraises": "images/fraises.jpg",
+  "caramel": "images/caramel.jpg",
+  "tartiner": "images/pate_tartiner.jpg"
 };
 
 // Cadrage des photos (object-position) : [image] -> position
@@ -41,6 +43,12 @@ const F = [
   ["tiramisu", "Tiramisu spéculoos et café", "Allergènes : gluten, soja.", [["6 parts", "25 €"], ["12 parts", "45 €"]]]
 ];
 
+// Les douceurs à tartiner : [image, nom, description, prix]
+const D = [
+  ["caramel", "Caramel &quot;beurre&quot; salé à la vanille", "Allergènes : soja.", [["Pot de 440g", "7 €"]]],
+  ["tartiner", "Pâte à tartiner noisette", "Allergènes : soja, fruits à coque (noisette).", [["Pot de 300g", "9,5 €"]]]
+];
+
 // Les tartes de saison : [image, nom, description, [prix 6, 8, 10 personnes]]
 const T = [
   ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [32, 38, 43]],
@@ -56,9 +64,11 @@ const single = v => card(v[0], v[1], v[2], Array.isArray(v[3]) ? lines(v[3]) : `
 const g1 = document.getElementById("g1");
 const g2 = document.getElementById("g2");
 const g3 = document.getElementById("g3");
+const g4 = document.getElementById("g4");
 
 if (g1) g1.innerHTML = V.map(single).join("");
 if (g2) g2.innerHTML = F.map(single).join("");
+if (g4) g4.innerHTML = D.map(single).join("");
 if (g3) {
   g3.innerHTML = T.map(v => card(v[0], v[1], v[2], lines([6, 8, 10].map((n, i) => [n + " personnes", v[3][i] + " €"])))).join("");
 }

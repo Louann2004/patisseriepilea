@@ -137,6 +137,12 @@ cursor: pointer;
 align-self: flex-start;
 }
 
+.hero-btns {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+
 .btn:focus-visible, input:focus-visible, textarea:focus-visible, nav a:focus-visible {
 outline: 2px solid var(--rose);
 outline-offset: 2px;
@@ -411,6 +417,22 @@ padding: 12px 20px;
 }
 
 @media(max-width: 760px) {
+.hero-btns {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+}
+.hero-btns .btn {
+align-self: stretch;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 12px 6px;
+font-size: 12px;
+line-height: 1.25;
+min-height: 52px;
+}
 header {
 justify-content: center;
 text-align: center;
