@@ -44,19 +44,41 @@
       <div class="menu">
         <h1 class="title" style="padding-bottom:18px">À la carte</h1>
         <p class="intro">Tarifs affichés pour la vente aux particuliers.<br>Pour les <b>professionnels</b>, merci de <b>prendre contact</b> avec moi pour recevoir le <b>catalogue B2B</b>.</p>
-        <h2>Les gâteaux de voyage</h2>
-        <div class="grid" id="g1"></div>
-        <h2>Les pâtisseries fraîches</h2>
-        <div class="grid" id="g2"></div>
-        <h2>Les douceurs à tartiner</h2>
-        <div class="grid" id="g4"></div>
-        <h2>Les tartes de saison</h2>
-        <div class="grid" id="g3"></div>
+        <div class="carte-layout">
+          <nav class="carte-nav" aria-label="Sections de la carte">
+            <button type="button" data-s="all" class="on" aria-current="true">Voir tout</button>
+            <button type="button" data-s="0">Gâteaux de voyage</button>
+            <button type="button" data-s="1">Pâtisseries fraîches</button>
+            <button type="button" data-s="2">Douceurs à tartiner</button>
+            <button type="button" data-s="3">Tartes de saison</button>
+          </nav>
+          <div class="carte-content all">
+          <section class="carte-sec" data-s="0">
+            <h2>Les gâteaux de voyage</h2>
+            <div class="grid" id="g1"></div>
+            <div class="next-wrap"><span>Suivant</span><button type="button" class="btn next" data-go="1">Pâtisseries fraîches</button></div>
+          </section>
+          <section class="carte-sec" data-s="1">
+            <h2>Les pâtisseries fraîches</h2>
+            <div class="grid" id="g2"></div>
+            <div class="next-wrap"><span>Suivant</span><button type="button" class="btn next" data-go="2">Douceurs à tartiner</button></div>
+          </section>
+          <section class="carte-sec" data-s="2">
+            <h2>Les douceurs à tartiner</h2>
+            <div class="grid" id="g4"></div>
+            <div class="next-wrap"><span>Suivant</span><button type="button" class="btn next" data-go="3">Tartes de saison</button></div>
+          </section>
+          <section class="carte-sec" data-s="3">
+            <h2>Les tartes de saison</h2>
+            <div class="grid" id="g3"></div>
+          </section>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="page" id="apropos">
-      <div class="band"><h1 class="title" style="padding:40px 16px">À propos</h1></div>
+      <div class="band"><h1 class="title">À propos</h1></div>
       <div class="split">
         <img data-k="piping" alt="Dressage d'une crème à la poche">
         <div class="txt" style="background:var(--bg)">

@@ -22,7 +22,7 @@ body {
 margin: 0;
 background: var(--bg);
 color: var(--wine);
-font: 14px/1.6 Inter, Arial, sans-serif;
+font: 16px/1.6 Inter, Arial, sans-serif;
 }
 
 h1, h2, h3, .logo {
@@ -130,7 +130,7 @@ background: var(--wine);
 color: #fff;
 border: 0;
 padding: 12px 28px;
-font: 500 13px Inter;
+font: 500 15px Inter;
 border-radius: 3px;
 text-decoration: none;
 cursor: pointer;
@@ -190,29 +190,38 @@ max-width: 34em;
 font-size: clamp(28px, 3.4vw, 40px);
 }
 
+.txt p {
+font-size: 17px;
+line-height: 1.55;
+}
+
+#apropos .band .title {
+padding: 22px 16px;
+}
+
 .menu {
-max-width: 1040px;
+max-width: 1360px;
 margin: 0 auto;
-padding: 0 20px 60px;
+padding: 0 24px 60px;
 text-align: center;
 }
 
 .menu .intro {
 color: var(--soft);
 font-weight: 600;
-font-size: 16px;
+font-size: 18px;
 margin: 0 0 6px;
 }
 
 .menu h2 {
-font-size: 24px;
+font-size: 28px;
 margin-top: 44px;
 margin-bottom: 28px;
 }
 
 .menu .sub {
 color: var(--soft);
-font-size: 12px;
+font-size: 14px;
 max-width: 50em;
 margin: 4px auto 20px;
 }
@@ -222,6 +231,78 @@ display: grid;
 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 gap: 22px;
 text-align: left;
+}
+
+/* Menu de la carte : liste de sections à gauche, produits à droite */
+.carte-layout {
+display: grid;
+grid-template-columns: 210px 1fr;
+gap: 0 28px;
+text-align: left;
+margin-top: 28px;
+}
+
+.carte-nav {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 6px;
+align-self: start;
+position: sticky;
+top: 20px;
+padding: 4px 18px 4px 0;
+border-right: 1px dotted var(--wine);
+min-height: 260px;
+}
+
+.carte-nav button {
+background: none;
+border: 0;
+padding: 7px 0;
+color: var(--wine);
+font: 400 18px/1.3 Inter, Arial, sans-serif;
+text-align: left;
+cursor: pointer;
+}
+
+.carte-nav button:hover {
+text-decoration: underline;
+}
+
+.carte-nav button.on {
+font-weight: 700;
+}
+
+.carte-nav button:focus-visible, .next:focus-visible {
+outline: 2px solid var(--rose);
+outline-offset: 2px;
+}
+
+.carte-content .carte-sec:first-child h2, .carte-content:not(.all) h2 {
+margin-top: 0;
+}
+
+.carte-content h2 {
+text-align: left;
+}
+
+.next-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+padding: 36px 0 10px;
+font-size: 17px;
+}
+
+.next-wrap .next {
+align-self: center;
+padding: 16px 28px;
+font-size: 18px;
+}
+
+.carte-content.all .next-wrap {
+display: none;
 }
 
 /* Cartes produits : même espacements qu'avant, mais sans bulle ni encadré */
@@ -245,13 +326,13 @@ border-radius: 0;
 }
 
 .card h3 {
-font-size: 15px;
+font-size: 18px;
 margin-top: 6px;
 }
 
 .card p {
 margin: 0;
-font-size: 12px;
+font-size: 14.5px;
 }
 
 /* Espace entre le libellé (ex. « Lot de 6 ») et son prix */
@@ -262,8 +343,8 @@ margin-left: 14px;
 .badge {
 background: var(--rose);
 border-radius: 99px;
-padding: 1px 12px;
-font-size: 11px;
+padding: 2px 13px;
+font-size: 13px;
 }
 
 .price {
@@ -275,7 +356,7 @@ display: flex;
 flex-direction: column;
 gap: 6px;
 padding: 36px 8%;
-font-size: 12px;
+font-size: 15px;
 }
 
 label {
@@ -287,9 +368,9 @@ width: 100%;
 background: transparent;
 border: 1px solid rgba(255, 255, 255, .45);
 color: #fff;
-padding: 10px;
+padding: 11px;
 font: inherit;
-font-size: 13px;
+font-size: 16px;
 }
 
 .radios {
@@ -319,12 +400,12 @@ cursor: pointer;
 max-width: 900px;
 margin: 0 auto;
 padding: 40px 24px 70px;
-font-size: 12px;
+font-size: 15px;
 color: #fff;
 }
 
 .legal h2 {
-font: 600 13px Inter;
+font: 600 16px Inter;
 margin: 26px 0 8px;
 }
 
@@ -352,11 +433,11 @@ grid-template-columns: 1.3fr 1fr 1fr 1fr auto;
 gap: 24px;
 align-items: start;
 padding: 26px 22px 16px;
-font-size: 12px;
+font-size: 14.5px;
 }
 
 footer h4 {
-font: 400 12px Inter;
+font: 400 14px Inter;
 margin: 0 0 10px;
 text-align: center;
 }
@@ -388,12 +469,33 @@ justify-content: center;
 
 .copy {
 grid-column: 1/-1;
-font-size: 11px;
+font-size: 13px;
 }
 
 /* Bandeau du bas (ordinateur) : copyright sous le texte à gauche,
    Contact / Horaires / Livraison / bouton centrés verticalement */
 @media (min-width: 761px) {
+#apropos {
+--blk: clamp(480px, calc(100svh - 330px), 640px);
+}
+#apropos .split > img {
+height: var(--blk);
+min-height: 0;
+}
+#apropos .split > .txt {
+min-height: var(--blk);
+padding: 28px 6%;
+}
+#apropos .txt {
+gap: 12px;
+}
+#apropos .txt p {
+font-size: clamp(15px, 1.2vw, 17px);
+line-height: 1.5;
+}
+#apropos .txt h2 {
+font-size: clamp(26px, 2.8vw, 36px);
+}
 footer {
 row-gap: 0;
 }
@@ -417,6 +519,36 @@ padding: 12px 20px;
 }
 
 @media(max-width: 760px) {
+.carte-layout {
+grid-template-columns: 1fr;
+gap: 0;
+margin-top: 18px;
+}
+.carte-nav {
+position: static;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 6px 8px;
+padding: 0 0 16px;
+min-height: 0;
+border-right: 0;
+border-bottom: 1px dotted var(--wine);
+margin-bottom: 20px;
+}
+.carte-nav button {
+padding: 8px 14px;
+font-size: 15px;
+border: 1px solid var(--wine);
+border-radius: 99px;
+}
+.carte-nav button.on {
+background: var(--wine);
+color: #fff;
+}
+.next-wrap .next {
+font-size: 16px;
+padding: 14px 20px;
+}
 .hero-btns {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
@@ -429,7 +561,7 @@ align-items: center;
 justify-content: center;
 text-align: center;
 padding: 12px 6px;
-font-size: 12px;
+font-size: 13px;
 line-height: 1.25;
 min-height: 52px;
 }
@@ -460,6 +592,18 @@ background-position: 50% center;
 }
 .split > * {
 min-height: 240px;
+}
+#apropos .split > img {
+height: auto;
+min-height: 0;
+aspect-ratio: 4 / 3;
+}
+#apropos .split > .txt {
+min-height: 0;
+padding: 36px 7%;
+}
+.txt p {
+font-size: 16px;
 }
 .txt {
 padding: 32px 7%;

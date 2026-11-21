@@ -73,6 +73,29 @@ if (g3) {
   g3.innerHTML = T.map(v => card(v[0], v[1], v[2], lines([6, 8, 10].map((n, i) => [n + " personnes", v[3][i] + " €"])))).join("");
 }
 
+// Menu de la carte : « Voir tout » ou une section à la fois, avec bouton « Suivant »
+const carteNav = document.querySelector(".carte-nav");
+if (carteNav) {
+  const content = document.querySelector(".carte-content");
+  const secs = [...content.querySelectorAll(".carte-sec")];
+  const btns = [...carteNav.querySelectorAll("button")];
+  const show = (key, scroll) => {
+    const all = key === "all";
+    content.classList.toggle("all", all);
+    secs.forEach(s => s.hidden = !all && s.dataset.s !== key);
+    btns.forEach(b => {
+      const on = b.dataset.s === key;
+      b.classList.toggle("on", on);
+      if (on) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    });
+    const top = document.querySelector(".carte-layout").getBoundingClientRect().top;
+    if (scroll || top < 0) scrollTo({ top: scrollY + top - 16, behavior: "smooth" });
+  };
+  btns.forEach(b => b.addEventListener("click", () => show(b.dataset.s, false)));
+  content.querySelectorAll(".next").forEach(b => b.addEventListener("click", () => show(b.dataset.go, true)));
+  show("all", false);
+}
+
 document.querySelectorAll("[data-k]").forEach(i => i.src = IMG[i.dataset.k]);
 
 function route() {
@@ -86,8 +109,22 @@ function route() {
   scrollTo(0, 0);
 }
 
-addEventListener("hashchange", route);
+// À propos : les 4 blocs ont toujours exactement la même hauteur (celle du bloc de texte le plus haut)
+function equalizeBlocks() {
+  const a = document.getElementById("apropos");
+  if (!a) return;
+  a.style.removeProperty("--blk");
+  if (!matchMedia("(min-width: 761px)").matches || !a.offsetHeight) return;
+  const need = Math.max(...[...a.querySelectorAll(".txt")].map(e => e.getBoundingClientRect().height));
+  a.style.setProperty("--blk", Math.ceil(need) + "px");
+}
+
+addEventListener("hashchange", () => { route(); equalizeBlocks(); });
+addEventListener("resize", equalizeBlocks);
+addEventListener("load", equalizeBlocks);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalizeBlocks);
 route();
+equalizeBlocks();
 
 // Quand on arrive sur une page via le menu, le navigateur saute à l'ancre (#carte, #contact...)
 // et masque le bandeau du haut : on force donc l'affichage tout en haut de la page.
