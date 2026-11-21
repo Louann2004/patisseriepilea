@@ -18,7 +18,8 @@ const IMG = {
   "fraises": "images/fraises.jpg",
   "caramel": "images/caramel.jpg",
   "tartiner": "images/pate_tartiner.jpg",
-  "tartelette": "images/tartelette_pumpkin.jpg"
+  "tartelette": "images/tartelette_pumpkin.jpg",
+  "cookiecitron": "images/cookie_citron.jpg"
 };
 
 // Cadrage des photos (object-position) : [image] -> position
@@ -29,16 +30,20 @@ const POS = {
 // Prix : soit un texte (prix unique), soit une liste [libellé, prix]
 const U = [["À l'unité", "3 €"], ["Lot de 6", "17 €"], ["Lot de 12", "33 €"]];
 
+// Produits récents : définis une seule fois, affichés dans « Nouveautés » ET dans leur section
+const CITRON = ["cookiecitron", "Cookie au citron", "Allergènes : gluten, soja.", [["À l'unité", "3,50 €"], ["Lot de 6", "20 €"], ["Lot de 12", "36 €"]]];
+const MYRTILLES = ["muffin", "Muffin myrtilles", "Allergènes : gluten, soja.", U];
+const PUMPKIN = ["tartelette", "Tartelette &quot;pumpkin pie&quot;", "Pâte sucrée croustillante, crème de potimarron, épices de Noël.<br><br>Allergènes : gluten, soja.", [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]]];
+
 // Les nouveautés : [image, nom, description, prix]
-const N = [
-  ["tartelette", "Tartelette &quot;pumpkin pie&quot;", "Pâte sucrée croustillante, crème de potimarron, épices de Noël.<br><br>Allergènes : gluten, soja.", [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]]],
-  ["muffin", "Muffin myrtilles", "Allergènes : gluten, soja.", U]
-];
+const N = [CITRON, PUMPKIN, MYRTILLES];
 
 // Les gâteaux de voyage : [image, nom, description, prix]
 const V = [
   ["cookie2", "Cookie au chocolat", "Allergènes : gluten, soja, fruits à coque.", U],
+  CITRON,
   ["muffinepices", "Muffin aux épices", "Sirop d'érable, spéculoos, cannelle, épices chaï.<br><br>Allergènes : gluten, soja.", U],
+  MYRTILLES,
   ["fondant", "Fondant au chocolat", "Minimum de commande : 4 parts.<br><br>Allergènes : soja, fruits à coque.", [["4 parts", "14 €"], ["8 parts", "25 €"]]],
   ["banana", "Banana bread", "8 personnes (2,75€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "22 €"],
   ["crumble", "Cake pomme crumble", "8 personnes (3€/part)<br><br>Allergènes : gluten, soja, fruits à coque.", "24 €"]
@@ -62,7 +67,8 @@ const T = [
   ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [32, 38, 43]],
   ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)<br><br>Allergènes : gluten, soja.", [25, 30, 35]],
   ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [27, 31, 35]],
-  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]]
+  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]],
+  PUMPKIN
 ];
 
 const card = (k, t, d, p) => `<article class="card"><img src="${IMG[k]}" alt="${t}" loading="lazy"${POS[k] ? ` style="object-position:${POS[k]}"` : ""}><h3>${t}</h3><p>${d}</p><span class="badge">🌱 Végétalien</span>${p}</article>`;
