@@ -16,7 +16,8 @@ const IMG = {
   "brownie": "images/brownie.jpg",
   "fraises": "images/fraises.jpg",
   "caramel": "images/caramel.jpg",
-  "tartiner": "images/pate_tartiner.jpg"
+  "tartiner": "images/pate_tartiner.jpg",
+  "tartelette": "images/tartelette_pumpkin.jpg"
 };
 
 // Cadrage des photos (object-position) : [image] -> position
@@ -45,7 +46,7 @@ const F = [
 
 // Les douceurs à tartiner : [image, nom, description, prix]
 const D = [
-  ["caramel", "Caramel &quot;beurre&quot; salé à la vanille", "Allergènes : soja.", [["Pot de 440g", "7 €"]]],
+  ["caramel", "Caramel &quot;beurre&quot; salé à la vanille", "Allergènes : soja.", [["Pot de 300g", "7 €"]]],
   ["tartiner", "Pâte à tartiner noisette", "Allergènes : soja, fruits à coque (noisette).", [["Pot de 300g", "9,5 €"]]]
 ];
 
@@ -54,7 +55,8 @@ const T = [
   ["nectarine", "Tarte aux fruits de saison", "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.<br><br>Allergènes : gluten, soja.", [32, 38, 43]],
   ["chocolat", "Tarte au chocolat", "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)<br><br>Allergènes : gluten, soja.", [25, 30, 35]],
   ["amandine", "Tarte amandine", "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).<br><br>Allergènes : gluten, soja, fruits à coque.", [27, 31, 35]],
-  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]]
+  ["citron", "Tarte citron menthe", "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.<br><br>Allergènes : gluten, soja.", [22, 27, 32]],
+  ["tartelette", "Tartelette &quot;pumpkin pie&quot;", "Pâte sucrée croustillante, crème de potimarron, épices de Noël.<br><br>Allergènes : gluten, soja.", [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]]]
 ];
 
 const card = (k, t, d, p) => `<article class="card"><img src="${IMG[k]}" alt="${t}" loading="lazy"${POS[k] ? ` style="object-position:${POS[k]}"` : ""}><h3>${t}</h3><p>${d}</p><span class="badge">🌱 Végétalien</span>${p}</article>`;
@@ -70,7 +72,7 @@ if (g1) g1.innerHTML = V.map(single).join("");
 if (g2) g2.innerHTML = F.map(single).join("");
 if (g4) g4.innerHTML = D.map(single).join("");
 if (g3) {
-  g3.innerHTML = T.map(v => card(v[0], v[1], v[2], lines([6, 8, 10].map((n, i) => [n + " personnes", v[3][i] + " €"])))).join("");
+  g3.innerHTML = T.map(v => Array.isArray(v[3][0]) ? single(v) : card(v[0], v[1], v[2], lines([6, 8, 10].map((n, i) => [n + " personnes", v[3][i] + " €"])))).join("");
 }
 
 // Menu de la carte : « Voir tout » ou une section à la fois, avec bouton « Suivant »

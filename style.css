@@ -663,3 +663,10 @@ max-width: 36em;
 font-size: clamp(26px, calc(var(--s) * 0.056), 52px);
 }
 }
+
+/* Titre et description de « À la carte » : alignés sur le trait pointillé du menu */
+@media (min-width: 761px) {
+.menu .title, .menu .intro {
+margin-left: 210px;
+}
+}
