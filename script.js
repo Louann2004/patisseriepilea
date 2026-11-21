@@ -33,6 +33,7 @@ const POS = {
 //   name       : nom du produit
 //   desc       : description (facultative, le HTML <br> est accepté)
 //   allergens  : liste des allergènes (sans « Allergènes : » ni point final)
+//   from       : (facultatif) prix affiché dans la liste, ex. "2,75 €" → « À partir de 2,75 € »
 //   prices     : soit un prix unique ("22 €"), soit une liste [libellé, prix]
 //   sansGluten : (facultatif) true / false pour forcer le badge « Sans gluten »
 //                (par défaut : affiché quand « gluten » n'est pas dans les allergènes)
@@ -42,17 +43,17 @@ const parts = (a, b) => [["4 parts", a], ["8 parts", b]];
 const pers = (a, b, c) => [["6 personnes", a], ["8 personnes", b], ["10 personnes", c]];
 
 const P = {
-  cookieChoc: { img: "cookie2", name: "Cookie au chocolat", allergens: "gluten, soja, fruits à coque", prices: U },
-  cookieCitron: { img: "cookiecitron", name: "Cookie au citron", allergens: "gluten, soja", prices: [["À l'unité", "3,50 €"], ["Lot de 6", "20 €"], ["Lot de 12", "36 €"]] },
-  muffinEpices: { img: "muffinepices", name: "Muffin aux épices", desc: "Sirop d'érable, spéculoos, cannelle, épices chaï.", allergens: "gluten, soja", prices: U },
-  muffinMyrtilles: { img: "muffin", name: "Muffin myrtilles", allergens: "gluten, soja", prices: U },
-  fondant: { img: "fondant", name: "Fondant au chocolat", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", prices: parts("14 €", "25 €") },
+  cookieChoc: { img: "cookie2", name: "Cookie au chocolat", allergens: "gluten, soja, fruits à coque", from: "2,75 €", prices: U },
+  cookieCitron: { img: "cookiecitron", name: "Cookie au citron", allergens: "gluten, soja", from: "3 €", prices: [["À l'unité", "3,50 €"], ["Lot de 6", "20 €"], ["Lot de 12", "36 €"]] },
+  muffinEpices: { img: "muffinepices", name: "Muffin aux épices", desc: "Sirop d'érable, spéculoos, cannelle, épices chaï.", allergens: "gluten, soja", from: "2,75 €", prices: U },
+  muffinMyrtilles: { img: "muffin", name: "Muffin myrtilles", allergens: "gluten, soja", from: "2,75 €", prices: U },
+  fondant: { img: "fondant", name: "Fondant au chocolat", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
   banana: { img: "banana", name: "Banana bread", desc: "8 personnes (2,75€/part)", allergens: "gluten, soja, fruits à coque", prices: "22 €" },
   crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 personnes (3€/part)", allergens: "gluten, soja, fruits à coque", prices: "24 €" },
 
-  clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", prices: parts("14 €", "25 €") },
+  clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
   cheesecake: { img: "cheesecake", name: "Cheesecake aux fruits", desc: "8 personnes (3,75€/part).", allergens: "gluten, soja", prices: "30 €" },
-  tiramisu: { img: "tiramisu", name: "Tiramisu spéculoos et café", allergens: "gluten, soja", prices: [["6 parts", "25 €"], ["12 parts", "45 €"]] },
+  tiramisu: { img: "tiramisu", name: "Tiramisu spéculoos et café", allergens: "gluten, soja", from: "3,75 €", prices: [["6 parts", "25 €"], ["12 parts", "45 €"]] },
 
   caramel: { img: "caramel", name: "Caramel \"beurre\" salé à la vanille", allergens: "soja", prices: [["Pot de 300g", "7 €"]] },
   tartiner: { img: "tartiner", name: "Pâte à tartiner noisette", allergens: "soja, fruits à coque (noisette)", prices: [["Pot de 300g", "9,5 €"]] },
@@ -61,7 +62,7 @@ const P = {
   tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
   tarteAmandine: { img: "amandine", name: "Tarte amandine", desc: "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).", allergens: "gluten, soja, fruits à coque", prices: pers("27 €", "31 €", "35 €") },
   tarteCitron: { img: "citron", name: "Tarte citron menthe", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
-  pumpkin: { img: "tartelette", name: "Tartelette \"pumpkin pie\"", desc: "Pâte sucrée croustillante, crème de potimarron, épices de Noël.", allergens: "gluten, soja", prices: [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]] }
+  pumpkin: { img: "tartelette", name: "Tartelette \"pumpkin pie\"", desc: "Pâte sucrée croustillante, crème de potimarron, épices de Noël.", allergens: "gluten, soja", from: "3,75 €", prices: [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]] }
 };
 
 // Identifiant dans l'adresse : produit-<nom sans accents ni espaces>
@@ -82,6 +83,7 @@ const imgPos = k => POS[k] ? ` style="object-position:${POS[k]}"` : "";
 
 // Prix affiché dans la liste : le plus bas, précédé de « À partir de » s'il y en a plusieurs
 function fromPrice(p) {
+  if (p.from) return "À partir de " + p.from; // prix de la liste imposé à la main (champ « from »)
   if (typeof p.prices === "string") return p.prices;
   const v = p.prices.map(x => x[1]);
   const min = v.reduce((a, b) => (num(b) < num(a) ? b : a));
