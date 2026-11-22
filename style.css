@@ -888,8 +888,8 @@ padding: clamp(30px, 3.4vw, 46px) 16px 0;
 }
 
 .contact-intro {
-max-width: 48em;
-margin: 28px auto 0;
+max-width: 60em;
+margin: 24px auto 0;
 padding: 0 16px;
 text-align: center;
 font-size: 16px;
@@ -899,15 +899,18 @@ line-height: 1.5;
 .contact-grid {
 display: grid;
 grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-gap: clamp(28px, 6vw, 72px);
-align-items: start;
-max-width: 960px;
+gap: clamp(24px, 4vw, 56px);
+align-items: stretch;
+width: 100%;
+max-width: 1240px;
 margin: 0 auto;
-padding: clamp(28px, 4vw, 48px) 24px clamp(40px, 6vw, 72px);
+box-sizing: border-box;
+padding: clamp(24px, 3vw, 40px) clamp(20px, 4vw, 56px) clamp(40px, 5vw, 64px);
 }
 
 .contact-grid form {
 padding: 0;
+gap: 4px;
 }
 
 .contact-grid form label {
@@ -918,12 +921,20 @@ font-size: 13px;
 margin: 0;
 }
 
+.contact-grid form input[type=text],
+.contact-grid form input[type=email],
+.contact-grid form input[type=tel] {
+padding: 9px 10px;
+}
+
+/* La photo prend la hauteur du formulaire (du haut du 1er champ au bas du bouton) */
 .contact-grid img {
-width: 100%;
-aspect-ratio: 794 / 1031;
-height: auto;
-object-fit: cover;
 display: block;
+width: 100%;
+height: 0;
+min-height: calc(100% - 30px);
+margin-top: 30px;
+object-fit: cover;
 }
 
 @media (max-width: 760px) {
@@ -932,38 +943,30 @@ grid-template-columns: 1fr;
 gap: 32px;
 }
 .contact-grid img {
-max-width: 320px;
+height: auto;
+min-height: 0;
 margin: 0 auto;
+max-width: 340px;
+aspect-ratio: 794 / 1031;
 }
 }
 
 .contact-grid {
-max-width: 880px;
-grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+max-width: 1400px;
+padding-left: clamp(20px, 3.5vw, 48px);
+padding-right: clamp(20px, 3.5vw, 48px);
 }
 
-.contact-grid form {
-gap: 4px;
+.contact-intro {
+max-width: 80em;
 }
 
-.contact-grid form input[type=text],
-.contact-grid form input[type=email],
-.contact-grid form input[type=tel] {
-padding: 8px 10px;
-}
-
-.contact-grid img {
-margin-top: 30px;
+#msg:empty {
+display: none;
 }
 
 @media (max-width: 760px) {
 .contact-grid img {
-margin-top: 0;
-}
-}
-
-@media (max-width: 760px) {
-.contact-grid {
-grid-template-columns: 1fr;
+max-width: 420px;
 }
 }
