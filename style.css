@@ -881,3 +881,89 @@ grid-template-columns: 1fr;
 max-width: none;
 }
 }
+
+/* Contact : titre, introduction, puis formulaire + photo */
+#contact .title {
+padding: clamp(30px, 3.4vw, 46px) 16px 0;
+}
+
+.contact-intro {
+max-width: 48em;
+margin: 28px auto 0;
+padding: 0 16px;
+text-align: center;
+font-size: 16px;
+line-height: 1.5;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+gap: clamp(28px, 6vw, 72px);
+align-items: start;
+max-width: 960px;
+margin: 0 auto;
+padding: clamp(28px, 4vw, 48px) 24px clamp(40px, 6vw, 72px);
+}
+
+.contact-grid form {
+padding: 0;
+}
+
+.contact-grid form label {
+font-size: 13px;
+}
+
+.contact-grid .radios label {
+margin: 0;
+}
+
+.contact-grid img {
+width: 100%;
+aspect-ratio: 794 / 1031;
+height: auto;
+object-fit: cover;
+display: block;
+}
+
+@media (max-width: 760px) {
+.contact-grid {
+grid-template-columns: 1fr;
+gap: 32px;
+}
+.contact-grid img {
+max-width: 320px;
+margin: 0 auto;
+}
+}
+
+.contact-grid {
+max-width: 880px;
+grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+}
+
+.contact-grid form {
+gap: 4px;
+}
+
+.contact-grid form input[type=text],
+.contact-grid form input[type=email],
+.contact-grid form input[type=tel] {
+padding: 8px 10px;
+}
+
+.contact-grid img {
+margin-top: 30px;
+}
+
+@media (max-width: 760px) {
+.contact-grid img {
+margin-top: 0;
+}
+}
+
+@media (max-width: 760px) {
+.contact-grid {
+grid-template-columns: 1fr;
+}
+}

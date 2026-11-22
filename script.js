@@ -15,7 +15,7 @@ const IMG = {
   "hero": "images/accueil.jpg",
   "piping": "images/piping.jpg",
   "brownie": "images/brownie.jpg",
-  "fraises": "images/fraises.jpg",
+  "tarteFraises": "images/tarte_fraises.jpg",
   "caramel": "images/caramel.jpg",
   "tartiner": "images/pate_tartiner.jpg",
   "tartelette": "images/tartelette_pumpkin.jpg",
