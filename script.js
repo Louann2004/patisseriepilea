@@ -52,7 +52,7 @@ const P = {
   crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 personnes (3€/part)", allergens: "gluten, soja, fruits à coque", prices: "24 €" },
 
   clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
-  cheesecake: { img: "cheesecake", name: "Cheesecake aux fruits", desc: "8 personnes (3,75€/part).", allergens: "gluten, soja", prices: "30 €" },
+  cheesecake: { img: "cheesecake", name: "Crémeux fruité", desc: "Base spéculoos et crémeux au fruit de ton choix.<br>8 personnes (3,75€/part).", allergens: "gluten, soja", prices: "30 €" },
   tiramisu: { img: "tiramisu", name: "Tiramisu spéculoos et café", allergens: "gluten, soja", from: "3,75 €", prices: [["6 parts", "25 €"], ["12 parts", "45 €"]] },
 
   caramel: { img: "caramel", name: "Caramel \"beurre\" salé à la vanille", allergens: "soja", prices: [["Pot de 300g", "7 €"]] },
