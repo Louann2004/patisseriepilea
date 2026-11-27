@@ -4,6 +4,8 @@
 --wine: #75070F;
 --rose: #EFC6C6;
 --soft: #9B3A40;
+--bar: 44px;
+--brique: #7f2727;
 color-scheme: light;
 box-sizing: border-box;
 padding-top: env(safe-area-inset-top, 0px);
@@ -101,8 +103,8 @@ color: #fff;
 
 .hero {
 background: var(--cream) center 35%/cover no-repeat;
-min-height: max(calc(100vh - 130px), 60vw);
-min-height: max(calc(100svh - 130px), 60vw);
+min-height: max(calc(100vh - 130px - var(--bar)), 60vw);
+min-height: max(calc(100svh - 130px - var(--bar)), 60vw);
 flex-direction: column;
 justify-content: center;
 padding: 64px 8vw;
@@ -195,8 +197,78 @@ font-size: 17px;
 line-height: 1.55;
 }
 
-#apropos .band .title {
+#apropos .band .title, #carte .band .title {
 padding: clamp(30px, 3.4vw, 46px) 16px;
+}
+
+/* Bandeau d'annonce, tout en haut de chaque page */
+.topbar {
+background: var(--brique);
+color: #fff;
+text-align: center;
+padding: 9px 16px;
+}
+
+.topbar p {
+margin: 0;
+font-size: clamp(13px, 1.2vw, 20px);
+line-height: 1.4;
+}
+
+.topbar a {
+color: #fff;
+}
+
+.topbar .nb {
+white-space: nowrap;
+}
+
+.topbar .ico {
+height: 1.5em;
+width: auto;
+vertical-align: middle;
+margin-top: -.2em;
+}
+
+.topbar .ico-start {
+margin-right: .45em;
+}
+
+.topbar .ico-end {
+margin-left: .45em;
+}
+
+/* Bandeau « À la carte » : même taille que « À propos », avec photos en transparence */
+.carte-band {
+position: relative;
+overflow: hidden;
+background: var(--brique);
+}
+
+.carte-band .strip {
+position: absolute;
+top: 0;
+bottom: 0;
+left: -3vw;
+display: flex;
+}
+
+.carte-band .strip img {
+flex: none;
+height: 100%;
+width: auto;
+aspect-ratio: 1 / 1;
+object-fit: cover;
+opacity: .36;
+display: block;
+}
+
+.carte-band .title {
+position: relative;
+}
+
+#carte .menu .intro {
+margin-top: 36px;
 }
 
 .menu {
@@ -531,6 +603,9 @@ padding: 36px 0 16px;
 .menu .intro {
 font-size: 16px;
 margin-bottom: 30px;
+}
+#carte .menu .intro {
+margin-top: 26px;
 }
 .carte-layout {
 grid-template-columns: 1fr;

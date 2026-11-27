@@ -18,8 +18,7 @@ const IMG = {
   "tarteFraises": "images/tarte_fraises.jpg",
   "caramel": "images/caramel.jpg",
   "tartiner": "images/pate_tartiner.jpg",
-  "tartelette": "images/tartelette_pumpkin.jpg",
-  "cookiecitron": "images/cookie_citron.jpg"
+  "tartelette": "images/tartelette_pumpkin.jpg"
 };
 
 // Cadrage des photos (object-position) : [image] -> position
@@ -44,12 +43,11 @@ const pers = (a, b, c) => [["6 personnes", a], ["8 personnes", b], ["10 personne
 
 const P = {
   cookieChoc: { img: "cookie2", name: "Cookie au chocolat", allergens: "gluten, soja, fruits à coque", from: "2,75 €", prices: U },
-  cookieCitron: { img: "cookiecitron", name: "Cookie au citron", allergens: "gluten, soja", from: "3 €", prices: [["À l'unité", "3,50 €"], ["Lot de 6", "20 €"], ["Lot de 12", "36 €"]] },
   muffinEpices: { img: "muffinepices", name: "Muffin aux épices", desc: "Sirop d'érable, spéculoos, cannelle, épices chaï.", allergens: "gluten, soja", from: "2,75 €", prices: U },
   muffinMyrtilles: { img: "muffin", name: "Muffin myrtilles", allergens: "gluten, soja", from: "2,75 €", prices: U },
   fondant: { img: "fondant", name: "Fondant au chocolat", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
-  banana: { img: "banana", name: "Banana bread", desc: "8 personnes (2,75€/part)", allergens: "gluten, soja, fruits à coque", prices: "22 €" },
-  crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 personnes (3€/part)", allergens: "gluten, soja, fruits à coque", prices: "24 €" },
+  banana: { img: "banana", name: "Banana bread", desc: "8 personnes (2,75€/part)", allergens: "gluten, soja", prices: "22 €" },
+  crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 personnes (3€/part)", allergens: "gluten, soja", prices: "24 €" },
 
   clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
   cheesecake: { img: "cheesecake", name: "Crémeux fruité", desc: "Base spéculoos et crémeux au fruit de ton choix.<br>8 personnes (3,75€/part).", allergens: "gluten, soja", prices: "30 €" },
@@ -62,7 +60,7 @@ const P = {
   tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
   tarteAmandine: { img: "amandine", name: "Tarte amandine", desc: "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).", allergens: "gluten, soja, fruits à coque", prices: pers("27 €", "31 €", "35 €") },
   tarteCitron: { img: "citron", name: "Tarte citron menthe", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
-  pumpkin: { img: "tartelette", name: "Tartelette \"pumpkin pie\"", desc: "Pâte sucrée croustillante, crème de potimarron, épices de Noël.", allergens: "gluten, soja", from: "3,75 €", prices: [["À l'unité", "4 €"], ["4 unités", "15,50 €"], ["8 unités", "30 €"]] }
+  pumpkin: { img: "tartelette", name: "Tarte potimarron et épices", desc: "Pâte sucrée croustillante, crème de potimarron et coco, épices de Noël et cannelle.", allergens: "gluten, soja", from: "3,40 €", prices: [["À l'unité", "4,50 €"], ["6 personnes", "24 €"], ["8 personnes", "29 €"], ["10 personnes", "34 €"]] }
 };
 
 // Identifiant dans l'adresse : produit-<nom sans accents ni espaces>
@@ -70,9 +68,9 @@ const slug = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase
 const BY_ID = {};
 Object.values(P).forEach(p => { p.id = slug(p.name); BY_ID[p.id] = p; });
 
-// Contenu de chaque section de la carte (« Nouveautés » reprend des produits déjà listés ailleurs)
-const N = [P.cookieCitron, P.pumpkin, P.muffinMyrtilles];
-const V = [P.cookieChoc, P.cookieCitron, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble];
+// Contenu de chaque section de la carte (« Pour les fêtes » reprend des produits déjà listés ailleurs)
+const N = [P.pumpkin, P.caramel];
+const V = [P.cookieChoc, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble];
 const F = [P.clafoutis, P.cheesecake, P.tiramisu];
 const D = [P.caramel, P.tartiner];
 const T = [P.tarteFruits, P.tarteChocolat, P.tarteAmandine, P.tarteCitron, P.pumpkin];
@@ -270,4 +268,14 @@ if (f) {
     btn.disabled = false;
     btn.textContent = "Envoyer par email";
   });
+}
+
+// Hauteur réelle du bandeau d'annonce (il peut passer sur plusieurs lignes sur téléphone)
+const topbar = document.querySelector(".topbar");
+if (topbar) {
+  const setBar = () => document.documentElement.style.setProperty("--bar", topbar.offsetHeight + "px");
+  setBar();
+  addEventListener("resize", setBar);
+  addEventListener("load", setBar);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setBar);
 }

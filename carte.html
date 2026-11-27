@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pâtisserie Pilea - À la carte</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261122">
+  <link rel="stylesheet" href="style.css?v=20261128">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body data-default-page="carte">
+  <div class="topbar" role="region" aria-label="Annonce">
+    <p><span class="nb"><img class="ico ico-start" src="images/icon-attention.png" alt="" width="30" height="30">Précommandes de Noël</span> jusqu’au <a href="contact.html#contact">19 décembre</a>&nbsp;! Commandez vite vos pâtisseries via le formulaire de contact ou à <span class="nb"><a href="mailto:contact@patisseriepilea.com">contact@patisseriepilea.com</a><img class="ico ico-end" src="images/icon-pain-epices.png" alt="" width="24" height="30"></span></p>
+  </div>
   <header>
     <a class="logo" href="index.html#accueil" aria-label="Pâtisserie Pilea – retour à l'accueil"><img src="images/logo-pilea.png" alt="Pilea – Pâtisseries végétales"></a>
     <nav>
@@ -41,13 +44,16 @@
     </section>
 
     <section class="page" id="carte">
-      <div class="menu">
+      <div class="band carte-band">
+        <div class="strip" aria-hidden="true"><img src="images/bandeau_pumpkin.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_caramel.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_fruits.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_cinnamon.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_entremet.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_muffin.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_cheesecake.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_banana.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_amandine.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_pumpkin.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_caramel.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_fruits.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_cinnamon.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_entremet.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_muffin.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_cheesecake.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_banana.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"><img src="images/bandeau_amandine.jpg" alt="" width="360" height="360" loading="lazy" decoding="async"></div>
         <h1 class="title">À la carte</h1>
+      </div>
+      <div class="menu">
         <p class="intro">Tarifs destinés à la vente aux particuliers.<br>Pour les <b>professionnels</b>, merci de prendre contact avec moi pour recevoir le <b>catalogue B2B</b>.</p>
         <div class="carte-layout">
           <nav class="carte-nav" aria-label="Sections de la carte">
             <button type="button" data-s="all" class="on" aria-current="true">Voir tout</button>
-            <button type="button" data-s="nouv">Nouveautés</button>
+            <button type="button" data-s="nouv">Pour les fêtes</button>
             <button type="button" data-s="0">Gâteaux de voyage</button>
             <button type="button" data-s="1">Pâtisseries fraîches</button>
             <button type="button" data-s="2">Douceurs à tartiner</button>
@@ -55,7 +61,7 @@
           </nav>
           <div class="carte-content all">
           <section class="carte-sec" data-s="nouv">
-            <h2>Nouveautés</h2>
+            <h2>Pour les fêtes</h2>
             <div class="grid" id="g0"></div>
             <div class="next-wrap"><span>Suivant</span><button type="button" class="btn next" data-go="0">Gâteaux de voyage</button></div>
           </section>
@@ -228,6 +234,6 @@
     <div class="copy">© 2026 - Pâtisserie Pilea - <a href="index.html#mentions">Mentions légales</a></div>
   </footer>
 
-  <script src="script.js?v=20261122"></script>
+  <script src="script.js?v=20261128"></script>
 </body>
 </html>
