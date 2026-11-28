@@ -18,7 +18,8 @@ const IMG = {
   "tarteFraises": "images/tarte_fraises.jpg",
   "caramel": "images/caramel.jpg",
   "tartiner": "images/pate_tartiner.jpg",
-  "tartelette": "images/tartelette_pumpkin.jpg"
+  "tartelette": "images/tartelette_pumpkin.jpg",
+  "sables": "images/sables_noel.jpg"
 };
 
 // Cadrage des photos (object-position) : [image] -> position
@@ -43,24 +44,26 @@ const pers = (a, b, c) => [["6 personnes", a], ["8 personnes", b], ["10 personne
 
 const P = {
   cookieChoc: { img: "cookie2", name: "Cookie au chocolat", allergens: "gluten, soja, fruits à coque", from: "2,75 €", prices: U },
-  muffinEpices: { img: "muffinepices", name: "Muffin aux épices", desc: "Sirop d'érable, spéculoos, cannelle, épices chaï.", allergens: "gluten, soja", from: "2,75 €", prices: U },
+  muffinEpices: { img: "muffinepices", name: "Muffin aux épices", desc: "Sirop d'érable, spéculoos, cannelle et épices chaï.<br><br>Supplément 0,30€ : fourré à la pâte de spéculoos", allergens: "gluten, soja", from: "2,75 €", prices: U },
   muffinMyrtilles: { img: "muffin", name: "Muffin myrtilles", allergens: "gluten, soja", from: "2,75 €", prices: U },
-  fondant: { img: "fondant", name: "Fondant au chocolat", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
-  banana: { img: "banana", name: "Banana bread", desc: "8 personnes (2,75€/part)", allergens: "gluten, soja", prices: "22 €" },
-  crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 personnes (3€/part)", allergens: "gluten, soja", prices: "24 €" },
+  fondant: { img: "fondant", name: "Fondant au chocolat", allergens: "soja, fruits à coque", from: "3,25 €", prices: [["À l'unité", "4 €"], ["6 parts", "22 €"], ["12 parts", "40 €"]] },
+  banana: { img: "banana", name: "Banana bread", desc: "8 parts.<br><br>Supplément 3€ : pépites de chocolat.", allergens: "gluten, soja", prices: "22 €" },
+  crumble: { img: "crumble", name: "Cake pomme crumble", desc: "8 parts.", allergens: "gluten, soja", prices: "24 €" },
 
-  clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja, fruits à coque", from: "3,10 €", prices: parts("14 €", "25 €") },
-  cheesecake: { img: "cheesecake", name: "Crémeux fruité", desc: "Base spéculoos et crémeux au fruit de ton choix.<br>8 personnes (3,75€/part).", allergens: "gluten, soja", prices: "30 €" },
+  clafoutis: { img: "clafoutis", name: "Clafoutis aux fruits", desc: "Minimum de commande : 4 parts.", allergens: "soja", from: "3,25 €", prices: parts("14 €", "26 €") },
+  cheesecake: { img: "cheesecake", name: "Crémeux fruité", desc: "Base spéculoos et crémeux au soja et fruit au choix<br><br>8 personnes", allergens: "gluten, soja", prices: "30 €" },
   tiramisu: { img: "tiramisu", name: "Tiramisu spéculoos et café", allergens: "gluten, soja", from: "3,75 €", prices: [["6 parts", "25 €"], ["12 parts", "45 €"]] },
 
-  caramel: { img: "caramel", name: "Caramel \"beurre\" salé à la vanille", allergens: "soja", prices: [["Pot de 300g", "7 €"]] },
-  tartiner: { img: "tartiner", name: "Pâte à tartiner noisette", allergens: "soja, fruits à coque (noisette)", prices: [["Pot de 300g", "9,5 €"]] },
+  sables: { img: "sables", name: "Sablés de Noël", desc: "Épices de Noël (cannelle, gingembre, clou de girofle) et zestes d'orange.", allergens: "gluten", prices: [["150g", "3,50 €"], ["300g", "6 €"]] },
+
+  caramel: { img: "caramel", name: "Caramel \"beurre\" salé à la vanille", allergens: "soja", prices: [["Pot de 300g", "8 €"]] },
+  tartiner: { img: "tartiner", name: "Pâte à tartiner noisette", allergens: "soja, fruits à coque (noisette)", prices: [["Pot de 300g", "10 €"]] },
 
   tarteFruits: { img: "nectarine", name: "Tarte aux fruits de saison", desc: "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.", allergens: "gluten, soja", prices: pers("32 €", "38 €", "43 €") },
   tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
   tarteAmandine: { img: "amandine", name: "Tarte amandine", desc: "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).", allergens: "gluten, soja, fruits à coque", prices: pers("27 €", "31 €", "35 €") },
   tarteCitron: { img: "citron", name: "Tarte citron menthe", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
-  pumpkin: { img: "tartelette", name: "Tarte potimarron et épices", desc: "Pâte sucrée croustillante, crème de potimarron et coco, épices de Noël et cannelle.", allergens: "gluten, soja", from: "3,40 €", prices: [["À l'unité", "4,50 €"], ["6 personnes", "24 €"], ["8 personnes", "29 €"], ["10 personnes", "34 €"]] }
+  pumpkin: { img: "tartelette", name: "Tarte potimarron et épices", desc: "Pâte sucrée croustillante, crème de potimarron et coco, épices de Noël et cannelle.", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") }
 };
 
 // Identifiant dans l'adresse : produit-<nom sans accents ni espaces>
@@ -69,11 +72,11 @@ const BY_ID = {};
 Object.values(P).forEach(p => { p.id = slug(p.name); BY_ID[p.id] = p; });
 
 // Contenu de chaque section de la carte (« Pour les fêtes » reprend des produits déjà listés ailleurs)
-const N = [P.pumpkin, P.caramel];
-const V = [P.cookieChoc, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble];
+const N = [P.pumpkin, P.caramel, P.sables];
+const V = [P.cookieChoc, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble, P.sables];
 const F = [P.clafoutis, P.cheesecake, P.tiramisu];
 const D = [P.caramel, P.tartiner];
-const T = [P.tarteFruits, P.tarteChocolat, P.tarteAmandine, P.tarteCitron, P.pumpkin];
+const T = [P.pumpkin, P.tarteChocolat, P.tarteAmandine, P.tarteCitron, P.tarteFruits];
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const num = s => parseFloat(String(s).replace(/[^\d,.]/g, "").replace(",", "."));
