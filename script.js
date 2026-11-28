@@ -22,6 +22,11 @@ const IMG = {
   "sables": "images/sables_noel.jpg"
 };
 
+// Version des photos : à changer (ex. "20261201") chaque fois que tu remplaces une photo en gardant le même nom,
+// pour que les navigateurs téléchargent la nouvelle version au lieu de garder l'ancienne en mémoire.
+const IMG_V = "20261129";
+Object.keys(IMG).forEach(k => { IMG[k] += "?v=" + IMG_V; });
+
 // Cadrage des photos (object-position) : [image] -> position
 const POS = {
   "banana": "center 10%"
@@ -60,9 +65,9 @@ const P = {
   tartiner: { img: "tartiner", name: "Pâte à tartiner noisette", allergens: "soja, fruits à coque (noisette)", prices: [["Pot de 300g", "10 €"]] },
 
   tarteFruits: { img: "nectarine", name: "Tarte aux fruits de saison", desc: "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.", allergens: "gluten, soja", prices: pers("32 €", "38 €", "43 €") },
-  tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Suppléments possibles : poires, caramel beurre salé ou bananes.", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
+  tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
   tarteAmandine: { img: "amandine", name: "Tarte amandine", desc: "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).", allergens: "gluten, soja, fruits à coque", prices: pers("27 €", "31 €", "35 €") },
-  tarteCitron: { img: "citron", name: "Tarte citron menthe", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
+  tarteCitron: { img: "citron", name: "Tarte menthe citron", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
   pumpkin: { img: "tartelette", name: "Tarte potimarron et épices", desc: "Pâte sucrée croustillante, crème de potimarron et coco, épices de Noël et cannelle.", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") }
 };
 
@@ -72,7 +77,7 @@ const BY_ID = {};
 Object.values(P).forEach(p => { p.id = slug(p.name); BY_ID[p.id] = p; });
 
 // Contenu de chaque section de la carte (« Pour les fêtes » reprend des produits déjà listés ailleurs)
-const N = [P.pumpkin, P.caramel, P.sables];
+const N = [P.pumpkin, P.tarteChocolat, P.tarteCitron, P.tarteAmandine, P.caramel, P.sables];
 const V = [P.cookieChoc, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble, P.sables];
 const F = [P.clafoutis, P.cheesecake, P.tiramisu];
 const D = [P.caramel, P.tartiner];
