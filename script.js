@@ -77,7 +77,7 @@ const BY_ID = {};
 Object.values(P).forEach(p => { p.id = slug(p.name); BY_ID[p.id] = p; });
 
 // Contenu de chaque section de la carte (« Pour les fêtes » reprend des produits déjà listés ailleurs)
-const N = [P.pumpkin, P.tarteChocolat, P.tarteCitron, P.tarteAmandine, P.caramel, P.sables];
+const N = [P.caramel, P.sables, P.pumpkin, P.tarteChocolat, P.tarteAmandine, P.tarteCitron];
 const V = [P.cookieChoc, P.muffinEpices, P.muffinMyrtilles, P.fondant, P.banana, P.crumble, P.sables];
 const F = [P.clafoutis, P.cheesecake, P.tiramisu];
 const D = [P.caramel, P.tartiner];
