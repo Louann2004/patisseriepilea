@@ -60,7 +60,7 @@ const P = {
   tartiner: { img: "tartiner", name: "Pâte à tartiner noisette", allergens: "soja, fruits à coque (noisette)", prices: [["Pot de 300g", "10 €"]] },
 
   tarteFruits: { img: "nectarine", name: "Tarte aux fruits de saison", desc: "Pâte sucrée croustillante, crème pâtissière à la vanille, fruits de saison et nappage neutre.", allergens: "gluten, soja", prices: pers("32 €", "38 €", "43 €") },
-  tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Bananes en supplément (3€)", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
+  tarteChocolat: { img: "chocolat", name: "Tarte au chocolat", desc: "Pâte sucrée croustillante, ganache au chocolat noir.<br>Suppléments possibles : poires, caramel beurre salé ou bananes.", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") },
   tarteAmandine: { img: "amandine", name: "Tarte amandine", desc: "Pâte sucrée croustillante, crème d'amande, fruits au choix (poire, abricot, pêche...).", allergens: "gluten, soja, fruits à coque", prices: pers("27 €", "31 €", "35 €") },
   tarteCitron: { img: "citron", name: "Tarte citron menthe", desc: "Pâte sucrée croustillante, crème au citron jaune et à la menthe fraîche.", allergens: "gluten, soja", prices: pers("22 €", "27 €", "32 €") },
   pumpkin: { img: "tartelette", name: "Tarte potimarron et épices", desc: "Pâte sucrée croustillante, crème de potimarron et coco, épices de Noël et cannelle.", allergens: "gluten, soja", prices: pers("25 €", "30 €", "35 €") }
